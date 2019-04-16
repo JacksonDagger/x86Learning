@@ -70,6 +70,11 @@ void test_array_equals(){
   printf("Done tests of array_equals \n");
 }
 
+void print_arr(unsigned long length, long * arr){
+  for(unsigned long i = 0; i < length; i++) printf("%ld, ", arr[i]);
+  printf("\n");
+}
+
 
 int main(int argc, char **argv) {
   long rv;
@@ -108,7 +113,9 @@ int main(int argc, char **argv) {
   else printf("passed \n");
 
   printf("Test 3: ");
+  print_arr(5, arr3);
   insertion_sort(5, arr3);
+  print_arr(5, arr3);
   if((rv = array_equals(5, arr3, arr3s)) != -1) printf("failed at position %ld \n", rv);
   else printf("passed \n");
 
@@ -118,7 +125,9 @@ int main(int argc, char **argv) {
   else printf("passed \n");
   
   printf("Test 5: ");
+  print_arr(9, arr5);
   insertion_sort(9, arr5);
+  print_arr(9, arr5);
   if((rv = array_equals(9, arr5, arr5s)) != -1) printf("failed at position %ld \n", rv);
   else printf("passed \n");
 
