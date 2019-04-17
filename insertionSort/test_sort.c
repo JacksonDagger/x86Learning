@@ -7,7 +7,7 @@ Testing a program to sum arrays in C
 #include <sys/time.h>
 #include <stdlib.h>
 
-extern void insertion_sort(unsigned long length, long * arr);
+extern long insertion_sort(unsigned long length, long * arr);
 
 /*
 * returns 0 if the array is sorted, returns the position of the first element that is smaller than the previous element otherwise
@@ -78,7 +78,7 @@ void print_arr(unsigned long length, long * arr){
 
 int main(int argc, char **argv) {
   long rv;
-
+  long loops;
   /* test arrays */
   long arr1[1] = {1};
   long arr2[5] = {-1, 0, 8, 12, 15};
@@ -103,32 +103,32 @@ int main(int argc, char **argv) {
   printf("Starting tests of insertion sort \n");
 
   printf("Test 1: ");
-  insertion_sort(1, arr1);
-  if((rv = array_equals(1, arr1, arr1s)) != -1) printf("failed at position %ld \n", rv);
+  loops = insertion_sort(1, arr1);
+  if((rv = array_equals(1, arr1, arr1s)) != -1) printf("failed at position %ld with %ld loops \n", rv, loops);
   else printf("passed \n");
 
   printf("Test 2: ");
   insertion_sort(5, arr2);
-  if((rv = array_equals(5, arr2, arr2s)) != -1) printf("failed at position %ld \n", rv);
+  if((rv = array_equals(5, arr2, arr2s)) != -1) printf("failed at position %ld with %ld loops \n", rv, loops);
   else printf("passed \n");
 
   printf("Test 3: ");
   print_arr(5, arr3);
   insertion_sort(5, arr3);
   print_arr(5, arr3);
-  if((rv = array_equals(5, arr3, arr3s)) != -1) printf("failed at position %ld \n", rv);
+  if((rv = array_equals(5, arr3, arr3s)) != -1) printf("failed at position %ld with %ld loops \n", rv, loops);
   else printf("passed \n");
 
   printf("Test 4: ");
   insertion_sort(2, arr4);
-  if((rv = array_equals(2, arr4, arr4s)) != -1) printf("failed at position %ld \n", rv);
+  if((rv = array_equals(2, arr4, arr4s)) != -1) printf("failed at position %ld with %ld loops \n", rv, loops);
   else printf("passed \n");
   
   printf("Test 5: ");
   print_arr(9, arr5);
   insertion_sort(9, arr5);
   print_arr(9, arr5);
-  if((rv = array_equals(9, arr5, arr5s)) != -1) printf("failed at position %ld \n", rv);
+  if((rv = array_equals(9, arr5, arr5s)) != -1) printf("failed at position %ld with %ld loops \n", rv, loops);
   else printf("passed \n");
 
   printf("Done tests of insertion sort \n");
