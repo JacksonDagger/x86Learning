@@ -8,7 +8,7 @@ _insertion_sort:
 outer_for:
 	incq %rax
 	cmpq %rcx, %rdi	# checking if fxn has reached end of list
-	jle	finish
+	jl	finish
 	movq (%rsi), %rdx	# storing val = array[i] in %rdx
 	movq %rcx, %r8	# j = i
 	movq %rsi, %r9	# r9 stores address of array[j]
