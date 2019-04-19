@@ -2,11 +2,9 @@
         .globl  _insertion_sort
 _insertion_sort:
 	pushq %r10
-	movq $0, %rax
 	movq $1, %rcx	# i = 1
 	addq $8, %rsi 	# incrementing base pointer of array
 outer_for:
-	incq %rax
 	cmpq %rcx, %rdi	# checking if fxn has reached end of list
 	jle	finish
 	movq (%rsi), %rdx	# storing val = array[i] in %rdx
